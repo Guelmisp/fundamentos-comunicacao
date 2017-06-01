@@ -5,13 +5,13 @@
 A = 0.25;
 
 % frequencia de amostragem
-fs = 1000;
+fs = 500000;
 
 % periodo de amostragem
 Ts = 1/fs;
 
 % F = 100hz
-frequencia = 100;
+frequencia = 100000;
 
 %intervalo de amostragem
 t = 0:Ts:5;
@@ -25,9 +25,9 @@ N = length(senoide);
 k = 0:N-1;
 T = N/fs;
 freq = k/T;
-fftSenoide = fft(senoide)/N;
+fftSen = fft(senoide)/N;
 cutoff=ceil(N/2);
-fftSenoide=fftSenoide(1:cutoff);
+fftSen=fftSen(1:cutoff);
 
 figure(1)
 subplot(2,1,1);
@@ -37,7 +37,7 @@ ylabel('Amplitude') ;
 title('Onda Senoidal');
 
 subplot(2,1,2);
-plot(freq(1:cutoff), abs(fftSenoide));
+plot(freq(1:cutoff), abs(fftSen));
 xlabel('Freq in Hz');
 ylabel('[Vs]') ;
 title('Dominio da Frequencia');
