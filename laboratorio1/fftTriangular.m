@@ -5,7 +5,7 @@
 A = 0.25;
 
 % frequencia de amostragem
-fs = 500000;
+fs = 20000000;
 
 % periodo de amostragem
 Ts = 1/fs;
@@ -14,7 +14,7 @@ Ts = 1/fs;
 frequencia = 100000;
 
 %intervalo de amostragem
-t = 0:Ts:5;
+t = 0:Ts:0.001;
 n = length(t);
 
 %%%%% Onda triangular

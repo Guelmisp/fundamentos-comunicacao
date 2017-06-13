@@ -5,16 +5,16 @@
 A = 0.25;
 
 % frequencia de amostragem
-fs = 10000;
+fs = 20000000;
 
 % periodo de amostragem
 Ts = 1/fs;
 
 % F = 100hz
-frequencia = 100;
+frequencia = 100000;
 
 %intervalo de amostragem
-t = -5:Ts:5;
+t = 0:Ts:0.001;
 n = length(t);
 
 %%%%% Onda Sinc

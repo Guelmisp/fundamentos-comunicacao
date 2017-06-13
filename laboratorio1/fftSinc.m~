@@ -5,7 +5,7 @@
 A = 0.25;
 
 % frequencia de amostragem
-fs = 20000000;
+fs = 10000;
 
 % periodo de amostragem
 Ts = 1/fs;
@@ -14,31 +14,31 @@ Ts = 1/fs;
 frequencia = 100000;
 
 %intervalo de amostragem
-t = 0:Ts:0.001;
+t = -5:Ts:5;
 n = length(t);
 
-%%%%% Onda quadrada
-quadrada = A*square(2*pi*frequencia*t);
+%%%%% Onda Sinc
+sincF = A*sinc(pi*frequencia*t);
 
 
 %Transformada
-N = length(quadrada);
+N = length(sincF);
 k = 0:N-1;
 T = N/fs;
 freq = k/T;
-fftquadrada = fft(quadrada)/N;
+fftsincF = fft(sincF)/N;
 cutoff=ceil(N/2);
-fftquadrada=fftquadrada(1:cutoff);
+fftsincF=fftsincF(1:cutoff);
 
 figure(1)
 subplot(2,1,1);
-plot(t, quadrada);
+plot(t, sincF);
 xlabel('Tempo (sec)');
 ylabel('Amplitude') ;
-title('Onda Quadrada');
+title('Sinal Sinc');
 
 subplot(2,1,2);
-plot(freq(1:cutoff), abs(fftquadrada));
+plot(freq(1:cutoff), abs(fftsincF));
 xlabel('Freq in Hz');
 ylabel('[Vs]') ;
 title('Dominio da Frequencia');
